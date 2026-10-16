@@ -4,8 +4,8 @@ import os
 import requests
 from gtts import gTTS
 
-# 쇼생크 탈출 전용 봇 토큰 및 수신자 ID
-TELEGRAM_BOT_TOKEN = "8659088311:AAETuxx7R1XfH20X1sYCMC43WQZ3NHJgA4U"
+# GitHub Secrets에서 안전하게 토큰을 가져옵니다
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 CHAT_ID = "8986966488"
 
 # 시작 기준일 (2026-10-16 기준 Day 1 시작)
@@ -13,7 +13,7 @@ START_DATE = datetime.date(2026, 10, 16)
 today = datetime.date.today()
 day_index = (today - START_DATE).days
 
-# 대본 파일 불러오기 (shawshank.json)
+# 대본 파일 불러오기
 with open("shawshank.json", "r", encoding="utf-8") as f:
   script_list = json.load(f)
 
